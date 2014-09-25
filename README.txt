@@ -37,30 +37,3 @@ The application consists of the following files:
 3. header.h
 4. makefile
 5. README.txt
-
-Flow Diagram:
-
-			Server											Client
-									
-															send JOIN(username)
-			if username is already in use					
-				send NAK(reason)
-			else if max client count is reached
-				send NAK(reason)
-			else 
-				send ACK(client count, client list)
-				send ONLINE broadcast to all clients
-															if ACK/NAK is received then it displays the message
-															send SEND(message) if the user chats on the console
-															if ONLINE broadcast is received then it displays that
-															the user is online.
-			broadcast the message through FWD(message)
-															if FWD is received, display the message in the console
-			if server disconnects												
-															client also disconnects displaying proper reason
-															
-															if client disconnects
-			server sends a broadcast to all clients
-			with the user OFFLINE message
-															if OFFLINE broadcast is received then the client displays that 
-															the user is offline.
